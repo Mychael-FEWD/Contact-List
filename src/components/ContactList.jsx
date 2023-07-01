@@ -7,7 +7,7 @@ const dummyContacts = [
   { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
 ];
 
-export default function ContactList() {
+export default function ContactList({ onSelect }) {
   const [contacts, setContacts] = useState(dummyContacts);
   // console.log(`Contacts: `, contacts);
 
@@ -43,7 +43,11 @@ export default function ContactList() {
         {
           // Map over data here
           contacts.map((contact) => (
-            <ContactRow contact={contact} key={contact.id} />
+            <ContactRow
+              contact={contact}
+              key={contact.id}
+              onSelect={onSelect}
+            />
           ))
         }
       </tbody>
