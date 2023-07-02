@@ -1,21 +1,18 @@
 import { useState } from "react";
 import "./App.css";
 import ContactList from "./components/ContactList.jsx";
+import SelectedContact from "./components/SelectedContact";
 
 export default function App() {
   const [selectedContactId, setSelectedContactId] = useState(null);
-  const [count, setCount] = useState(0);
-
-  function handleClose() {
-    setSelectedContactId(null);
-  }
 
   return (
     <>
       {selectedContactId ? (
-        <div>
-          <button onClick={handleClose}>Close</button>
-        </div>
+        <SelectedContact
+          selectedContactId={selectedContactId}
+          onSelect={setSelectedContactId}
+        />
       ) : (
         <ContactList onSelect={setSelectedContactId} />
       )}

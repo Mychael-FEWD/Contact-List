@@ -1,5 +1,3 @@
-// import { useState } from "react";
-
 export default function ContactRow({ contact, onSelect }) {
   return (
     <tr key={contact.id} onClick={() => onSelect(contact.id)}>

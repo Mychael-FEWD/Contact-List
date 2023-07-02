@@ -9,7 +9,6 @@ const dummyContacts = [
 
 export default function ContactList({ onSelect }) {
   const [contacts, setContacts] = useState(dummyContacts);
-  // console.log(`Contacts: `, contacts);
 
   useEffect(() => {
     async function fetchContacts() {
@@ -25,7 +24,6 @@ export default function ContactList({ onSelect }) {
     }
     fetchContacts();
   }, []);
-  // console.log(contacts);
 
   return (
     <table>
@@ -40,16 +38,9 @@ export default function ContactList({ onSelect }) {
           <td>Email</td>
           <td>Phone</td>
         </tr>
-        {
-          // Map over data here
-          contacts.map((contact) => (
-            <ContactRow
-              contact={contact}
-              key={contact.id}
-              onSelect={onSelect}
-            />
-          ))
-        }
+        {contacts.map((contact) => (
+          <ContactRow contact={contact} key={contact.id} onSelect={onSelect} />
+        ))}
       </tbody>
     </table>
   );
