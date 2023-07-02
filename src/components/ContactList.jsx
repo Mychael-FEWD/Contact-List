@@ -33,7 +33,7 @@ export default function ContactList({ onSelect }) {
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr className="row-titles">
           <td>Name</td>
           <td>Email</td>
           <td>Phone</td>
