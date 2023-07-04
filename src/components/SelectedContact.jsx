@@ -7,7 +7,7 @@ export default function SelectedContact({ selectedContactId, onSelect }) {
     async function fetchContact() {
       try {
         const response = await fetch(
-          `http://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`
+          `https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`
         );
         const data = await response.json();
         setContact(data);
@@ -25,7 +25,7 @@ export default function SelectedContact({ selectedContactId, onSelect }) {
 
   return (
     <>
-      <div>
+      <div className="contact">
         {contact ? (
           <div>
             <h3>Contact: {contact.name}</h3>
@@ -41,8 +41,8 @@ export default function SelectedContact({ selectedContactId, onSelect }) {
         ) : (
           ""
         )}
+        <button onClick={handleClose}>Return</button>
       </div>
-      <button onClick={handleClose}>Return</button>
     </>
   );
 }
